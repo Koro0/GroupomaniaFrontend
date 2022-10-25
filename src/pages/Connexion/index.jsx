@@ -5,3 +5,4 @@ function Connexion() {
         </div>
     )
 }
+export default Connexion
