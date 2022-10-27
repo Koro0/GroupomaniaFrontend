@@ -6,7 +6,7 @@ const config = new Headers({
 
 export class PostsService {
   static getAllPosts() {
-    return fetch('http://localhost:3000/api/posts/', {
+    return fetch('http://localhost:3500/api/posts/', {
       method: 'GET',
       headers: config,
     })
@@ -17,7 +17,7 @@ export class PostsService {
   static getOnePost() {
     const url = new URL(window.location.href);
     const postId = url.searchParams.get('id');
-    return fetch('http://localhost:3000/api/posts/' + postId, {
+    return fetch('http://localhost:3500/api/posts/' + postId, {
       method: 'GET',
       headers: config,
     })
@@ -26,7 +26,7 @@ export class PostsService {
   }
 
   static createPost() {
-    return fetch('http://localhost:3000/api/posts/', {
+    return fetch('http://localhost:3500/api/posts/', {
       method: 'POST',
       headers: config,
     })
