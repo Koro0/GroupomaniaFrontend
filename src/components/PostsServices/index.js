@@ -4,7 +4,7 @@ const config = new Headers({
   'Content-Type': 'multipart/form-data',
 });
 
-export class PostsService {
+export class PostsServices {
   static getAllPosts() {
     return fetch('http://localhost:3500/api/posts/', {
       method: 'GET',
