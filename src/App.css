@@ -1,7 +1,7 @@
-element {
-  --Primaire : #FD2D01;
-  --Secondaire : #FFD7D7;
-  --Tertiaire : #4E5166;
+:root {
+  --primaire : #FD2D01;
+  --secondaire : #FFD7D7;
+  --tertiaire : #4E5166;
 }
 
 .App {
@@ -41,4 +41,39 @@ element {
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav {
+  background-color: var(--tertiaire);
+  color: var(--primaire);
+  align-items: center;
+  list-style-type: none;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navList a {
+  text-decoration: none;
+}
+a:visited, a:link{
+  color: var(--primaire);
+  text-decoration: none;
+}
+.logo {
+  max-width: 25%;
+
+}
+.contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+h1, h2, h3 {
+  text-align: center;
 }
