@@ -1,19 +1,28 @@
 import { Link } from 'react-router-dom'
-import styled from 'styled-components';
+import logo from '../../assets/logo.png'
 
-const Nav = styled.nav`
-display: flex;
-flex-grow: 1;
-margin: auto;
-`
 
 const Header = () => {
+    //const userToken = localStorage.getItem('token')
     return (
-        <Nav>
-            <Link to='/'>Accueil</Link>
-            <Link to='/connexion'>Connexion</Link>
-            <Link to='/connexion/login'>Déconnexion</Link>
-        </Nav>
+        <nav>
+            <ul className='nav'>
+                <li className='navList'>
+                    <Link to='/'>
+                        <img className='logo' src={logo} alt="Groupomania" />
+                    </Link>
+                </li>
+                <li className='navList'>
+                    <Link to='/new_post'>New post</Link>
+                </li>
+                <li className='navList'>
+                    <Link to='/connexion'>Connexion</Link>
+                </li>
+                <li className='navList'>
+                    <Link to='/connexion'>Déconnexion</Link>
+                </li>
+            </ul>
+        </nav>
     )
 }
 
