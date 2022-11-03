@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
 
-function Header() {
+const Nav = styled.nav`
+display: flex;
+flex-grow: 1;
+margin: auto;
+`
+
+const Header = () => {
     return (
-        <nav>
+        <Nav>
             <Link to='/'>Accueil</Link>
             <Link to='/connexion'>Connexion</Link>
-        </nav>
+            <Link to='/connexion/login'>Déconnexion</Link>
+        </Nav>
     )
 }
 
