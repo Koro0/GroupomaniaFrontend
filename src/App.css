@@ -3,7 +3,9 @@
   --secondaire : #FFD7D7;
   --tertiaire : #4E5166;
 }
-
+body {
+  background-color: var(--tertiaire);
+}
 .App {
   text-align: center;
 }

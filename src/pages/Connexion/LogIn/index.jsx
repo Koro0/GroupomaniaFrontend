@@ -1,6 +1,6 @@
 import '../../../styles/connexion.css'
 
-import React from "react";
+import React, { Navigate } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -8,7 +8,7 @@ import { Password } from "primereact/password";
 import { classNames } from "primereact/utils";
 
 function signUp(props) {
-    fetch('http://localhost:3500/api/auth/signup', {
+    fetch('http://localhost:3500/api/auth/login', {
         method: 'POST',
         body: JSON.stringify(props),
         headers: {
@@ -18,11 +18,15 @@ function signUp(props) {
         .then((response) => response.json())
         .then((res) => {
             console.log('Success:', res);
+
+            return <Navigate to="/"></Navigate>
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+
 }
+
 
 export default function LogIn() {
     const defaultValues = {
@@ -113,7 +117,7 @@ export default function LogIn() {
                             </span>
                             {getFormErrorMessage("password")}
                         </div>
-                        <Button type="submit" label="Submit" className="mt-2" />
+                        <Button type="submit" label="Login" className="mt-2" />
                     </form>
                 </div>
             </div>

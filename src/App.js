@@ -13,12 +13,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home />}>
-          <Route path="new_post" element={<NewPost />}></Route>
+        <Route exact path="/Home" element={<Home />}>
+          <Route path="new_post" element={<NewPost />} />
         </Route>
-        <Route path="/connexion" element={<Connexion />}>
-          <Route path="login" element={<LogIn />}></Route>
-          <Route path="register" element={<Register />}></Route>
+        <Route path="/" element={<Connexion />}>
+          <Route path="login" element={<LogIn />} />
+          <Route path="register" element={<Register />} />
         </Route>
         <Route path="/*" element={<Error />}></Route>
       </Routes>

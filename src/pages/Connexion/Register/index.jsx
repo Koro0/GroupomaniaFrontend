@@ -129,7 +129,7 @@ export default function Register() {
                             </span>
                             {getFormErrorMessage("password")}
                         </div>
-                        <Button type="submit" label="Submit" className="mt-2" />
+                        <Button type="submit" label="Register" className="mt-2" />
                     </form>
                 </div>
             </div>
