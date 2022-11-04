@@ -96,7 +96,7 @@ export default function Register() {
                                     htmlFor="email"
                                     className={classNames({ "p-error": !!errors.email })}
                                 >
-                                    Email*
+                                    Example@Groupomania.com
                                 </label>
                             </span>
                             {getFormErrorMessage("email")}

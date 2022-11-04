@@ -1,34 +1,39 @@
 import '../../../styles/connexion.css'
 
-import React, { Navigate } from "react";
+import React, { Navigate, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { classNames } from "primereact/utils";
 
-function signUp(props) {
-    fetch('http://localhost:3500/api/auth/login', {
-        method: 'POST',
-        body: JSON.stringify(props),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
-        .then((response) => response.json())
-        .then((res) => {
-            console.log('Success:', res);
 
-            return <Navigate to="/"></Navigate>
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-
-}
 
 
 export default function LogIn() {
+    function signUp(props) {
+
+        fetch('http://localhost:3500/api/auth/login', {
+            method: 'POST',
+            body: JSON.stringify(props),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                console.log('Success:', res);
+                setIsAuthenticated(true);
+                return <Navigate to="/"></Navigate>
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setIsAuthenticated(false);
+            });
+
+    }
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
     const defaultValues = {
         email: "",
         password: ""
@@ -68,8 +73,8 @@ export default function LogIn() {
                                     rules={{
                                         required: "Email is required.",
                                         pattern: {
-                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                            message: "Invalid email address. E.g. example@email.com"
+                                            value: /^[A-Z0-9._%+-]+@groupomania.[A-Z]{2,4}$/i,
+                                            message: "Invalid email address. E.g. example@groupomania.com"
                                         }
                                     }}
                                     render={({ field, fieldState }) => (
@@ -86,7 +91,7 @@ export default function LogIn() {
                                     htmlFor="email"
                                     className={classNames({ "p-error": !!errors.email })}
                                 >
-                                    Email*
+                                    Example@Groupomania.com
                                 </label>
                             </span>
                             {getFormErrorMessage("email")}

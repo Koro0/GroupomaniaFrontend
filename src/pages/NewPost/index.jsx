@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function NewPost() {
+const NewPost = () => {
     return (
-        <div>index</div>
+        <div>
+            <h1>Creer un post</h1>
+
+        </div>
     )
 }
+export default NewPost
