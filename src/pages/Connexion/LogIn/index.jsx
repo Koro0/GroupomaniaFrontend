@@ -1,11 +1,12 @@
 import '../../../styles/connexion.css'
 
-import React, { Navigate, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { classNames } from "primereact/utils";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -24,7 +25,9 @@ export default function LogIn() {
             .then((res) => {
                 console.log('Success:', res);
                 setIsAuthenticated(true);
-                return <Navigate to="/"></Navigate>
+
+                localStorage.setItem('connect', res.token)
+                localStorage.setItem('user', res.userId)
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -33,6 +36,12 @@ export default function LogIn() {
 
     }
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (isAuthenticated === true) {
+            navigate('/home')
+        }
+    }, [isAuthenticated])
 
     const defaultValues = {
         email: "",
@@ -91,7 +100,7 @@ export default function LogIn() {
                                     htmlFor="email"
                                     className={classNames({ "p-error": !!errors.email })}
                                 >
-                                    Example@Groupomania.com
+                                    Email
                                 </label>
                             </span>
                             {getFormErrorMessage("email")}
