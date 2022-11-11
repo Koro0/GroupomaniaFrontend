@@ -1,57 +1,92 @@
-import { PostsServices } from '../../components/PostsServices'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+import styled from 'styled-components'
+import { FcLike } from "react-icons/fc";
+import { Link } from 'react-router-dom'
+import { PostsServices } from '../../components/PostsServices';
 
+const ButtonLikeOrDislike = styled.button`
+padding: 14px 40px;
+background-color: var(--secondaire);
+border:none
 
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+`
+const ArticlePost = styled.article``
 
-function Posts() {
-    const [posts, setPosts] = useState([]);
-    useEffect(() => {
-        PostsServices.getAllPosts().then(data => {
-            console.log(data);
-            setPosts(data);
-        })
-    }, []);
-
-    return (
-        <section>
-            {
-                posts && posts.length > 0 && posts.map((post) => {
-                    <article key={post._id}>
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={post.imageUrl}
-                                alt={post.title}
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {post.title}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {post.description}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                            </CardActions>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                {post.updateDate}
-                            </Typography>
-                        </Card>
-                    </article>
-
-                })
-            }
-        </section>
-    )
+const numberLiked = styled.span`
+color: var(--secondary)
+`
+numberLiked.defaultProps = {
+    value: 0
 }
 
-export default Posts
+const Home = () => {
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        PostsServices.getAllPosts().then((posts) => setPosts(posts))
+    }, [])
+    console.log(posts)
+
+    const config = new Headers({
+        Authorization: `Bearer ${localStorage.getItem('connect')}`,
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data',
+    });
+
+    const reqLike = { "userId": localStorage.getItem("user"), "like": 1 }
+    const handleLike = (props, req) => {
+        fetch('http://localhost:3500/api/posts/' + props + '/like', {
+            method: 'POST',
+            headers: config,
+            body: reqLike
+        })
+            .then((res) => res.json())
+            .catch((err) => console.log('msg: Like ' + err));
+    }
+
+    const articles =
+        posts && posts.length > 0 && posts.map((data) => {
+            console.log(data.likes)
+            return (
+                <ArticlePost key={data._id}>
+                    <div>
+                        <img src={data.imageUrl} alt={data.title} />
+                    </div>
+                    <div>
+                        <Link to={'/home/' + data._id} >
+                            <h2>{data.title}</h2>
+                        </Link>
+                    </div>
+                    <div>
+                        <p>{data.description}</p>
+                    </div>
+                    <div className='item'>
+                        <div>
+                            <ButtonLikeOrDislike onClick={handleLike(data._id)}>
+                                <FcLike />
+                            </ButtonLikeOrDislike>
+                        </div>
+                        <div>
+                            <p>
+                                <numberLiked /> {data.likes} J'aimes
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>{data.updateDate}</p>
+                </ArticlePost >
+            )
+        })
+    //if (!articles) { return <div>Laoding...</div> }
+
+    return (
+        <div>
+            <h1> Accueil</h1>
+            <section className='container'>
+                {articles}
+            </section>
+
+        </div>
+    )
+}
+export default Home
