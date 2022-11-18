@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function LogIn() {
+
     function signUp(props) {
 
         fetch('http://localhost:3500/api/auth/login', {
@@ -38,8 +39,10 @@ export default function LogIn() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate()
     useEffect(() => {
-        if (isAuthenticated === true) {
+        if (isAuthenticated) {
             navigate('/home')
+        } else {
+            navigate('/')
         }
     }, [isAuthenticated])
 
