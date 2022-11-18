@@ -17,9 +17,10 @@ export class PostsServices {
   static getOnePost() {
     const url = new URL(window.location.href);
     const postId = url.searchParams.get('id');
-    return fetch('http://localhost:3500/api/posts/' + postId, {
+    return fetch('http://localhost:3500/api/posts/', {
       method: 'GET',
       headers: config,
+      body: postId,
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
@@ -33,4 +34,12 @@ export class PostsServices {
       .then((res) => res.json())
       .catch((err) => console.log(err));
   }
+
+  // static postComments() {
+  //   const postId = url.searchParams.get('id');
+  //   return fetch('http://localhost:3500/api/posts/', {
+  //     method: 'POST',
+  //     headers: config,
+  //   })
+  // }
 }
