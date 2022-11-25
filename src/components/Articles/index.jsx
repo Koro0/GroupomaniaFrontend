@@ -5,13 +5,6 @@ import { BiLike } from 'react-icons/bi'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
-// const ArticlePost = styled.article`
-// background: var(--secondaire);
-// color: var(--primaire);
-// box-shadow: 0 2px 1px -1px ;
-// border-radius: 6px;
-// `
-
 const NumberLiked = styled.span`
 color: var(--secondary)
 `
@@ -51,7 +44,7 @@ export default function Articles() {
                             <Card.Img src={data.imageUrl} alt={data.title} />
                             <Card.Body className='p-body'>
                                 <Card.Title>
-                                    <Card.Link href={'/home/' + data._id}>
+                                    <Card.Link href={'/' + data._id}>
                                         {data.title}
                                     </Card.Link>
                                 </Card.Title>
