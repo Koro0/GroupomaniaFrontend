@@ -35,7 +35,7 @@ const NewPost = () => {
     const [description, setDescription] = useState('')
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         fetch('http://localhost:3500/api/posts', {
             Authorization: `Bearer ${localStorage.getItem('connect')}`,
             Accept: 'application/json',
