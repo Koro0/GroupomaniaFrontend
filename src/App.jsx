@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Connexion from './pages/Connexion';
-import LogIn from './pages/Connexion/LogIn';
-import Register from './pages/Connexion/Register';
+import ConnexionLogIn from './pages/Connexion/LogIn';
+import ConnexionRegister from './pages/Connexion/Register';
 import Header from './components/Header';
 import Error from './components/Error';
 import Posts from './pages/Posts';
@@ -23,14 +23,14 @@ function App() {
         minBreakpoint="xxs">
         <Header />
         <Routes>
-          <Route exact path="/home" element={<Posts />} >
-            <Route path="/home/:id" element={<Post />} />
-            <Route path="/home/add_post" element={<PostsAdd />} />
-            <Route path="/home/modify_post" element={<PostsPut />} />
-          </Route>
+          <Route exact path="/home" element={<Posts />} />
+          <Route path="/:id" element={<Post />} />
+          <Route path="/add_post" element={<PostsAdd />} />
+          <Route path="/modify_post" element={<PostsPut />} />
           <Route path="/" element={<Connexion />}>
-            <Route path='/login' element={<LogIn />} />
-            <Route path='/register' element={<Register />} />
+            {/* changer les routes path='/' => Login & path='/register' => Register */}
+            <Route path='/login' element={<ConnexionLogIn />} />
+            <Route path='/register' element={<ConnexionRegister />} />
           </Route>
           <Route path="/*" element={<Error />} />
         </Routes>
