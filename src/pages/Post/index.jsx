@@ -1,36 +1,36 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import CommentBox from '../../components/Comment'
 import { PostsServices } from '../../components/PostsServices'
+import Card from 'react-bootstrap/Card'
+import { useRef } from 'react'
 
-const OnePost = styled.div`
-`
 
 export default function Post() {
-    const [Post, setPost] = useState()
+    const [OnePost, setOnePost] = useState()
+    const onePost = useRef(null)
+    const fetchPostData = () => {
+        PostsServices.getOnePost.then((data) => {
+            onePost.current = data
+            setOnePost(data)
+        })
+    }
     useEffect(() => {
-        PostsServices.getOnePost().then((data) => setPost(data))
+        fetchPostData()
     }, [])
-
-    const showPost = Post && Post.map((data) => {
-        return (
-            <OnePost>
-                <div className='onePost-header'>
-                    <img src={data.imageUrl} alt="Post" />
-                    <h1>{data.title}</h1>
-                    <p>{data.description}</p>
-                </div>
-                <div>
-                    <CommentBox />
-                </div>
-
-            </OnePost>
-        )
-    })
+    console.log(OnePost)
     return (
         <div>
-            {showPost}
+            <Card className='OneCard' key={OnePost._id}>
+                <Card.Header className='onePost-header'>
+                    <Card.Img src={OnePost.imageUrl} alt="Post" />
+                    <Card.Title>{OnePost.title}</Card.Title>
+                    <Card.Text>{OnePost.description}</Card.Text>
+                </Card.Header>
+                <Card.Footer>
+                    <CommentBox />
+                </Card.Footer>
+            </Card>
         </div>
     )
 }
