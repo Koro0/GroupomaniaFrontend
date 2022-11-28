@@ -5,34 +5,43 @@ const config = new Headers({
 });
 
 export class PostsServices {
-  static getAllPosts() {
-    return fetch('http://localhost:3500/api/posts/', {
-      method: 'GET',
-      headers: config,
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+  static async getAllPosts() {
+    try {
+      const res = await fetch('http://localhost:3500/api/posts/', {
+        method: 'GET',
+        headers: config,
+      });
+      return await res.json();
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  static getOnePost() {
-    const url = new URL(window.location.href);
-    const postId = url.searchParams.get('id');
-    return fetch('http://localhost:3500/api/posts/', {
-      method: 'GET',
-      headers: config,
-      body: postId,
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+  static async getOnePost() {
+    const url = window.location.href;
+    const postId = url.split('/').pop();
+    console.log(postId);
+    try {
+      const res = await fetch('http://localhost:3500/api/posts/' + postId, {
+        method: 'GET',
+        headers: config,
+      });
+      return await res.json();
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
-  static createPost() {
-    return fetch('http://localhost:3500/api/posts/', {
-      method: 'POST',
-      headers: config,
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+  static async createPost() {
+    try {
+      const res = await fetch('http://localhost:3500/api/posts/', {
+        method: 'POST',
+        headers: config,
+      });
+      return await res.json();
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
   // static postComments() {
