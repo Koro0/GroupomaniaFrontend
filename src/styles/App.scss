@@ -1,4 +1,10 @@
-/*@import "~bootstrap/scss/bootstrap";*/
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import "primeicons/primeicons.css";
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "primereact/resources/primereact.css";
+@import "primeflex/primeflex.css";
+
 
 :root {
   --primaire : #FD2D01;
@@ -8,6 +14,7 @@
 body {
   background-color: var(--tertiaire) !important;
   color: var(--primaire) !important;
+  font-family: 'Lato', sans-serif;
 }
 .App {
   text-align: center;
@@ -91,17 +98,6 @@ h1, h2, h3 {
   margin: 5%;
   justify-content: space-between;
 }
-.likeButton {
-  color: var(--secondaire);
-  background: var(--primaire);
-  border: 1px solid var(--tertiaire);
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  border-radius: 6px;
-}
-
-
 
 .p-content {
   padding: 1.25rem 0;
@@ -124,11 +120,16 @@ h1, h2, h3 {
   margin-bottom: 2em;
 }
 */
+
 .article {
   margin-right: calc(0.5 * 1.5rem);
     margin-left: calc(0.5 * 1.5rem);
     display: flex;
     flex-wrap: wrap;
+}
+.heartStyle{
+  width:1.5rem;
+  height:1.5rem;
 }
 .cards {
   background: var(--secondaire);
@@ -162,19 +163,29 @@ justify-content: space-around;
   padding: 1rem;
 
 }
-.onepost-header {
-  display: grid;
-  justify-items: center;
+.onePost-header {
+  display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
 }
 /* Comment BOX */
 .comment-box {
 justify-content: center;
+max-width: 37.5rem;
+  color: #fff;
+  background-color: #909090;
+  border-radius: 0.875rem;
+  padding: 0.2rem 1rem 2rem;
 }
 
 .comment-form {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  padding: 1rem;  
 }
 
 .comment-form-fields {
@@ -182,6 +193,21 @@ justify-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
     padding: 10px;
+    margin-bottom: 0.25rem;
+  input, textarea {
+    border: none;
+    border-bottom: 1px solid #909090;
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
+    width: 99%;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    font-style: italic;
+  }
 }
 
 .comment-form-action {
