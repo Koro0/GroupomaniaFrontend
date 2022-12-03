@@ -20,7 +20,7 @@ const Header = () => {
                     </NavbarBrand>
                     <Nav className="me-auto">
                         <Nav.Link href="/home">Home</Nav.Link>
-                        <Nav.Link href="/new_post">Add Post</Nav.Link>
+                        <Nav.Link href="/add_post">Add Post</Nav.Link>
                         <Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>
                     </Nav>
                 </Container>
