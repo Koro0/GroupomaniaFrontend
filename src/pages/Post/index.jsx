@@ -6,28 +6,34 @@ import Card from 'react-bootstrap/Card'
 
 
 export default function Post() {
-    const [fetchOnePost, setFetchOnePost] = useState()
-
+    const [data, setData] = useState()
+    const [isAuthor, setIsAuthor] = useState(false)
     useEffect(() => {
         PostsServices.getOnePost().then((data) => {
-            setFetchOnePost(data)
+            setData(data)
             console.log(data)
+                (data.userId === localStorage.getItem('user') && setIsAuthor(true))
         })
     }, [])
+
     return (
         <div>
-            {fetchOnePost &&
-                <Card className='OneCard' key={fetchOnePost._id}>
+            {data &&
+                <Card className='OneCard' key={data._id}>
+                    {isAuthor &&
+                        <Card.Link href={"/modify_post?" + data._id} id="editPost">Edit</Card.Link>
+                    }
                     <Card.Header className='onePost-header'>
-                        <Card.Img src={fetchOnePost.imageUrl} alt="Post" />
-                        <Card.Title>{fetchOnePost.title}</Card.Title>
-                        <Card.Text>{fetchOnePost.description}</Card.Text>
+                        <Card.Img src={data.imageUrl} alt="Post" />
+                        <Card.Title>{data.title}</Card.Title>
+                        <Card.Text>{data.description}</Card.Text>
                     </Card.Header>
+
                     <Card.Footer>
-                        <CommentBox />
+                        <CommentBox idPost={data._id} />
                     </Card.Footer>
                 </Card>
             }
-        </div>
+        </div >
     )
 }
