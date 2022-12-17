@@ -11,6 +11,7 @@ import Post from './pages/Post';
 import PostsAdd from './pages/NewPost';
 import Footer from './components/Footer';
 import PostsPut from './pages/UpdatePost';
+import UserProfile from './pages/UserProfile';
 //import LoggedProvider from './components/Context/LoggedContext';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +27,8 @@ function App() {
           <Route exact path="/home" element={<Posts />} />
           <Route path="/:id" element={<Post />} />
           <Route path="/add_post" element={<PostsAdd />} />
-          <Route path="/modify_post" element={<PostsPut />} />
+          <Route path="/modify_post?:id" element={<PostsPut />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/" element={<Connexion />}>
             {/* changer les routes path='/' => Login & path='/register' => Register */}
             <Route path='/login' element={<ConnexionLogIn />} />
