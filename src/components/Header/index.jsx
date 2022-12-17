@@ -4,13 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavbarBrand from 'react-bootstrap/esm/NavbarBrand';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Header = () => {
-    // const { toggleLogged, logged } = useContext(LoggedContext)
+    const [isLogged, setIslogged] = useState(false)
     const handleLogOut = () => {
         localStorage.clear()
     }
+    useEffect(() => {
+        (localStorage.getItem('connect') && setIslogged(true))
+    }, [])
     return (
         <div>
             <Navbar className='navbar' variant="light">
@@ -21,7 +26,10 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/add_post">Add Post</Nav.Link>
-                        <Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>
+                        <Nav.Link href="/profile">Profile</Nav.Link>
+                        {
+                            (isLogged && <Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>)
+                        }
                     </Nav>
                 </Container>
             </Navbar>
