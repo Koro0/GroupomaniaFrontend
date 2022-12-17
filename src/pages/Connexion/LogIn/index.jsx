@@ -26,7 +26,10 @@ export default function LogIn() {
                 setIsAuthenticated(true);
 
                 localStorage.setItem('connect', res.token)
+                //awaitto change for secure
                 localStorage.setItem('user', res.userId)
+                localStorage.setItem('name', res.pseudo)
+
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -42,7 +45,7 @@ export default function LogIn() {
         } else {
             navigate('/')
         }
-    }, [isAuthenticated])
+    }, [isAuthenticated, navigate])
 
     const defaultValues = {
         email: "",
