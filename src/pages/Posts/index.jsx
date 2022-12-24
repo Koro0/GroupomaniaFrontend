@@ -11,7 +11,6 @@ margin: 15px;
 
 
 const Home = () => {
-
     return (
         <div>
             <h1> Accueil</h1>
