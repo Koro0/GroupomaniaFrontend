@@ -1,34 +1,65 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+
+import Card from 'react-bootstrap/Card'
+import { useNavigate } from 'react-router-dom'
+// components :
 import CommentBox from '../../components/Comment'
 import { PostsServices } from '../../components/PostsServices'
-import Card from 'react-bootstrap/Card'
+import Liked from '../../components/Likes';
+import { UserService } from '../../components/UserServices'
+
 
 
 export default function Post() {
     const [data, setData] = useState()
     const [isAuthor, setIsAuthor] = useState(false)
+    const [admin, setAdmin] = useState(false)
     useEffect(() => {
         PostsServices.getOnePost().then((data) => {
             setData(data)
-            console.log(data)
                 (data.userId === localStorage.getItem('user') && setIsAuthor(true))
         })
     }, [])
 
+    useEffect(() => {
+        UserService.checkAdmin().then((res) => setAdmin(res.data))
+    }, [])
+
+    const navigate = useNavigate()
+
+    const redirectEdit = () => {
+        navigate("/modify_post/" + data._id)
+    }
+    const handleDelete = () => {
+        PostsServices.deletePost(data._id).then(() => navigate('/home'))
+    }
+    const EditPost = () => {
+        if (isAuthor || admin) {
+            return (
+                <div className='modifyButton'>
+                    <Card.Link onClick={handleDelete} id="editPost"><i className='pi pi-trash'></i>Delete</Card.Link>
+                    <Card.Link onClick={redirectEdit} id="editPost"><i className='pi pi-pencil'></i> Edit</Card.Link>
+                </div>
+            )
+        }
+
+    }
+
     return (
         <div>
+            {/*si data exist && affiche contenu */}
             {data &&
                 <Card className='OneCard' key={data._id}>
-                    {isAuthor &&
-                        <Card.Link href={"/modify_post?" + data._id} id="editPost">Edit</Card.Link>
-                    }
+                    <EditPost />
                     <Card.Header className='onePost-header'>
                         <Card.Img src={data.imageUrl} alt="Post" />
                         <Card.Title>{data.title}</Card.Title>
                         <Card.Text>{data.description}</Card.Text>
                     </Card.Header>
-
+                    <Card.Footer>
+                        <Liked postId={data._id} />
+                    </Card.Footer>
                     <Card.Footer>
                         <CommentBox idPost={data._id} />
                     </Card.Footer>
