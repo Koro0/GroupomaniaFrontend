@@ -35,12 +35,20 @@ export class PostsServices {
     }
   }
 
-  static async postPost(data) {
+  static async newPost(data) {
     return await axios.post(this.urlApi, data, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('connect')}`,
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
+      },
+    });
+  }
+
+  static async deletePost(id) {
+    return await axios.delete(this.urlApi + `${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('connect')}`,
       },
     });
   }
@@ -77,21 +85,23 @@ export class PostsServices {
       return console.log(err);
     }
   }
-
-  static async likePost(params) {
-    const reqUserId = localStorage.getItem('user');
-    try {
-      const res = await fetch(
-        'http://localhost:3500/api/posts/' + params + '/like',
-        {
-          method: 'POST',
-          headers: config,
-          body: { userId: reqUserId, likes: 1 },
-        }
-      );
-      return await res.json();
-    } catch (err) {
-      return console.log(err);
-    }
+  static async likePost(id) {
+    return await axios.post(
+      this.urlApi + `${id}/like`,
+      { userId: localStorage.getItem('user'), like: 1 },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('connect')}`,
+          Accept: 'application/json',
+        },
+      }
+    );
+  }
+  static async getNumberLike(id) {
+    return await axios.get(this.urlApi + `${id}/likes`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('connect')}`,
+      },
+    });
   }
 }
