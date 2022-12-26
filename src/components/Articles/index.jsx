@@ -3,10 +3,10 @@ import { PostsServices } from '../../components/PostsServices';
 import Card from 'react-bootstrap/Card'
 
 
-
 export default function Articles() {
     const [posts, setPosts] = useState([])
 
+    //Souci chargement
     useEffect(() => {
         PostsServices.getAllPosts().then((data) => setPosts(data))
     }, [])
