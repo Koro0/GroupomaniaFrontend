@@ -11,25 +11,21 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LogIn() {
 
-    function signUp(props) {
+    function signUp(data) {
 
         fetch('http://localhost:3500/api/auth/login', {
             method: 'POST',
-            body: JSON.stringify(props),
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             },
         })
             .then((response) => response.json())
             .then((res) => {
-                console.log('Success:', res);
                 setIsAuthenticated(true);
 
                 localStorage.setItem('connect', res.token)
-                //awaitto change for secure
                 localStorage.setItem('user', res.userId)
-                localStorage.setItem('name', res.pseudo)
-
             })
             .catch((error) => {
                 console.error('Error:', error);
