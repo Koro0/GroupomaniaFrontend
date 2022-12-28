@@ -6,10 +6,10 @@ import { Password } from "primereact/password";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 
-function signUp(props) {
+function signUp(data) {
     fetch('http://localhost:3500/api/auth/signup', {
         method: 'POST',
-        body: JSON.stringify(props),
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         },
