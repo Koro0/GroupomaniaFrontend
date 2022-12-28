@@ -1,47 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { classNames } from "primereact/utils";
 import { useNavigate } from 'react-router-dom';
-
+import { UserService } from "../../../components/UserServices";
+import { useContext } from "react";
+import LoggedContext from "../../../components/LoggedContext";
 
 
 
 export default function LogIn() {
-
-    function signUp(data) {
-
-        fetch('http://localhost:3500/api/auth/login', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-            .then((response) => response.json())
-            .then((res) => {
-                setIsAuthenticated(true);
-
-                localStorage.setItem('connect', res.token)
-                localStorage.setItem('user', res.userId)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                setIsAuthenticated(false);
-            });
-
-    }
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const { logged, setLogged } = useContext(LoggedContext)
     const navigate = useNavigate()
     useEffect(() => {
-        if (isAuthenticated) {
+        if (logged) {
             navigate('/home')
         } else {
             navigate('/')
         }
-    }, [isAuthenticated, navigate])
+    }, [logged, navigate])
 
     const defaultValues = {
         email: "",
@@ -57,7 +36,12 @@ export default function LogIn() {
 
     const onSubmit = (data) => {
         console.log(data)
-        signUp(data)
+        UserService.logIn(data).then((res) => {
+            localStorage.setItem('connect', res.data.token)
+            localStorage.setItem('user', res.data.userId)
+            setLogged(true);
+            console.log(res.data)
+        }).catch(() => setLogged(false))
         reset();
     };
 
