@@ -25,4 +25,12 @@ export class UserService {
       },
     });
   }
+
+  static async logIn(data) {
+    return await axios.post(this.urlApiUser + '/login', data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 }
