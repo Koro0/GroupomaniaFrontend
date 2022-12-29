@@ -45,6 +45,16 @@ export class PostsServices {
     });
   }
 
+  static async ModifyPost(data) {
+    const url = window.location.href;
+    const postId = url.split('/').pop();
+    return await axios.put(this.urlApi + postId, data, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('connect')}`,
+      },
+    });
+  }
+
   static async deletePost(id) {
     return await axios.delete(this.urlApi + `${id}`, {
       headers: {
