@@ -12,6 +12,7 @@ const Header = () => {
     const [isLogged, setIslogged] = useState(false)
     const handleLogOut = () => {
         localStorage.clear()
+        setIslogged(false)
     }
     useEffect(() => {
         (localStorage.getItem('connect') && setIslogged(true))
@@ -24,9 +25,9 @@ const Header = () => {
                         <Logo />
                     </NavbarBrand>
                     <Nav className="me-auto">
-                        <Nav.Link href="/home">Home</Nav.Link>
-                        <Nav.Link href="/add_post">Add Post</Nav.Link>
-                        <Nav.Link href="/profile">Profile</Nav.Link>
+                        <Nav.Link href={isLogged ? "/home" : "/"}>Home</Nav.Link>
+                        <Nav.Link href={isLogged ? "/add_post" : "/"}>Add Post</Nav.Link>
+                        <Nav.Link href={isLogged ? "/profile" : "/"}>Profile</Nav.Link>
                         {
                             (isLogged && <Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>)
                         }
