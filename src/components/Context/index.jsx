@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const LoggedContext = createContext({})
+const Context = createContext({})
 
-export default LoggedContext
+export default Context;
