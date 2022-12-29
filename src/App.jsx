@@ -12,20 +12,21 @@ import PostsAdd from './pages/NewPost';
 import Footer from './components/Footer';
 import PostsPut from './pages/UpdatePost';
 import UserProfile from './pages/UserProfile';
-//import LoggedProvider from './components/Context/LoggedContext';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import LoggedContext from './components/LoggedContext';
+import Context from './components/Context';
 function App() {
   const [logged, setLogged] = useState(false);
+  const [user, setUser] = useState('');
+  const [token, setToken] = useState('');
 
   return (
     <BrowserRouter>
       <ThemeProvider
         breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
         minBreakpoint="xxs">
-        <LoggedContext.Provider value={{ logged, setLogged }}>
+        <Context.Provider value={{ logged, setLogged, user, setUser, token, setToken }}>
           <Header />
           <Routes>
             <Route exact path="/home" element={<Posts />} />
@@ -39,7 +40,7 @@ function App() {
             <Route path="/*" element={<Error />} />
           </Routes>
           <Footer />
-        </LoggedContext.Provider>
+        </Context.Provider>
       </ThemeProvider>
     </BrowserRouter>
   );
