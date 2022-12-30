@@ -19,21 +19,37 @@ export default function Comments({ idPost }) {
 
   const onSubmit = (data) => {
     PostsServices.postCommentsByIdPost(idPost, data).then(() => refreshComments())
+    console.log(idPost)
   };
 
   return (
-    <div>
+    <div className='card'>
+      <div class="card-body">
+        <h4 class="card-title">Recent Comments</h4>
+        <h6 class="card-subtitle">Latest Comments section by users</h6>
+      </div>
+      <div class="comment-widgets m-b-20">
+        {comments.map((comment, index) =>
+          <div class="d-flex flex-row comment-row">
+            <div class="comment-text w-100">
+              <ul>
+                <li className='commentLi' key={index}>
+                  <h5>{comment.user}</h5>
+                  <div class="comment-footer">
+                    <span class="date">{comment.date}</span>
+                  </div>
+                  <p>{comment.comment}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="commentaire">Commentaire</label>
-        <input id="commentaire" type="test" {...register('commentaire')} />
+        <textarea id="commentaire" type="text" placeholder='Commentaire' {...register('commentaire', { required: true, minLength: 2 })} />
         <input type="submit" />
       </form>
 
-      <ul>
-        {comments.map((comment, index) =>
-          <li className='commentLi' key={index}>{comment.user} : <br />{comment.comment}</li>
-        )}
-      </ul>
     </div>
   )
 }
