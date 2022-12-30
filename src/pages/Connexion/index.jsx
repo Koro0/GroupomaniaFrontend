@@ -6,8 +6,10 @@ function Connexion() {
     return (
         <div>
             <h1 className='texte-center'>Connexion</h1>
-            <div className='contents'>
+            <div className='contents row'>
                 <Login />
+                <div className='col-sm-1 middle-border'></div>
+                <div className='col-sm-1'></div>
                 <Register />
             </div>
         </div>
