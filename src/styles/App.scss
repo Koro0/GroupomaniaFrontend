@@ -169,6 +169,11 @@ flex-direction: row;
 justify-content: space-around;
 }
 /* New Post page */
+.form-row{
+  align-items: flex-start;
+  padding: 24px 55px;
+  border-bottom: 1px solid #e5e5e5;
+}
 #formTitle {
   display: flex;
   flex-direction: row;
