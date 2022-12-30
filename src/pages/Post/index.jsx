@@ -61,7 +61,13 @@ export default function Post() {
                         <Liked postId={data._id} />
                     </Card.Footer>
                     <Card.Footer>
-                        <CommentBox idPost={data._id} />
+                        <div className="container d-flex justify-content-center mt-100 mb-100">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <CommentBox idPost={data._id} />
+                                </div>
+                            </div>
+                        </div>
                     </Card.Footer>
                 </Card>
             }
