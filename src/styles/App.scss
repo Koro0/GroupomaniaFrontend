@@ -5,7 +5,7 @@
 @import "primereact/resources/primereact.css";
 @import "primeflex/primeflex.css";
 
-
+ 
 :root {
   --primaire : #FD2D01;
   --secondaire : #FFD7D7;
@@ -198,7 +198,7 @@ justify-content: space-around;
     align-items: center !important; 
 }
 /* Comment BOX */
-.comment-box {
+/*.comment-box {
 justify-content: center;
 max-width: 37.5rem;
   color: #fff;
@@ -215,11 +215,7 @@ max-width: 37.5rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
   padding: 1rem;  
-}
 
-.commentLi {
-  list-style: none;
-}
 .comment-form-fields {
   display: flex;
     flex-direction: column;
@@ -241,12 +237,86 @@ max-width: 37.5rem;
     font-style: italic;
   }
 }
-
 .comment-form-action {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+}*/
+
+.commentLi {
+  list-style: none;
+}
+.card-no-border .card {
+  border: 0px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem
+}
+
+.comment-widgets .comment-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+
+.comment-widgets .comment-row {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 15px;
+}
+.comment-text:hover{
+  visibility: hidden;
+}
+.comment-text:hover{
+  visibility: visible;
+}
+
+.label {
+  padding: 3px 10px;
+  line-height: 13px;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 75%;
+}
+
+.round img {
+  border-radius: 100%;
+}
+
+.label-info {
+  background-color: #1976d2;
+}
+
+.label-success {
+  background-color: green;
+}
+
+.label-danger {
+  background-color: #ef5350;
+}
+
+.action-icons a {
+  padding-left: 7px;
+  vertical-align: middle;
+  color: #99abb4;
+}
+
+.action-icons a:hover {
+  color: #1976d2;
+}
+#commentaire{
+  height: 95px;
+    width: 100%;
+}
+
+
+
 
 // modify page
 .modifyForm{
@@ -258,4 +328,28 @@ max-width: 37.5rem;
 .modifyTexteContent{
 height: 350px;
 width: 350px;
+}
+/// Connexion
+.form-box{
+  margin-top: 70px
+}
+.form-top{
+  overflow: hidden;
+  padding: 0 25px 15px 25px;
+  background: #fff;
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+  padding-top: 25px;
+}
+.form-bottom{
+  padding: 25px 25px 30px 25px;
+  background: #eee;
+  border-radius: 0 0 4px 4px;
+  text-align: left;
+}
+.middle-border {
+  min-height: 400px;
+  margin-top: 100px;
+  border-right: 1px solid #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
 }
