@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { PostsServices } from '../../components/PostsServices'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
-
-/*const DescriptionWindows = styled.textarea`
+const DescriptionWindows = styled.textarea`
 display: block;
  width: 100%;
  padding: 0.375rem 0.75rem;
@@ -19,7 +19,7 @@ display: block;
  appearance: none;
  border-radius: 0.375rem;
  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
- `*/
+ `
 // const PostForm = styled.form`
 //      margin: 2em auto;
 //      max-width: 750px;
@@ -35,13 +35,14 @@ display: flex;
 
 const NewPost = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
-
+    const navigate = useNavigate()
     const onSubmit = async (data) => {
         const formData = new FormData()
         formData.append('imageUrl', data.imageUrl[0])
         formData.append('title', data.title)
         formData.append('description', data.description)
-        PostsServices.newPost(formData);
+        PostsServices.newPost(formData).then(() => navigate('/home'))
+
     }
     //styles a refire
 
@@ -49,19 +50,25 @@ const NewPost = () => {
         <FormDiv>
             <h1>Creer votre post</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div id='formTitle'>
+                <div id='formTitle' class="form-row">
                     <label>Title :</label>
-                    <input type="text"  {...register('title')} placeholder="Your post Title" />
-                    {errors.title && <span >The title is required</span>}
+                    <div className="value">
+                        <input type="text"  {...register('title')} placeholder="Your post Title" />
+                        {errors.title && <span >The title is required</span>}
+                    </div>
                 </div>
-                <div id='formDescription'>
+                <div id='formDescription' class="form-row">
                     <label>Description :</label>
-                    <textarea  {...register('description')} placeholder="Your content " />
-                    {errors.description && <span>the minimum is to required</span>}
+                    <div className="value">
+                        <DescriptionWindows  {...register('description')} placeholder="Your content " />
+                        {errors.description && <span>the minimum is to required</span>}
+                    </div>
                 </div>
-                <div>
-                    <input {...register('imageUrl')} type="file" accept='image/png, image/jpeg, image/jpg' />
-                    {errors.description && <span className='errorFormNewPost'>the picture is required</span>}
+                <div class="form-row">
+                    <div className="value">
+                        <input {...register('imageUrl')} type="file" accept='image/png, image/jpeg, image/jpg' />
+                        {errors.description && <span className='errorFormNewPost'>the picture is required</span>}
+                    </div>
                 </div>
                 <button type='submit' >Poster</button>
             </form>
