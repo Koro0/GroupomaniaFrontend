@@ -12,13 +12,14 @@ margin: 15px;
 
 const Home = () => {
     return (
-        <div>
-            <h1> Accueil</h1>
-            <PostsSection className='p-container'>
-                <Articles />
-            </PostsSection>
-
-        </div>
+        <main role="main">
+            <div class="album py-5">
+                <h1> Accueil</h1>
+                <PostsSection className='container'>
+                    <Articles />
+                </PostsSection>
+            </div>
+        </main>
     )
 }
 export default Home
