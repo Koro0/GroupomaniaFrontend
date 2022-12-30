@@ -16,7 +16,6 @@ import Post from './pages/Post';
 import PostsAdd from './pages/NewPost';
 import Footer from './components/Footer';
 import PostsPut from './pages/UpdatePost';
-import UserProfile from './pages/UserProfile';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import { UserService } from './components/UserServices';
 function App() {
@@ -37,7 +36,6 @@ function App() {
             <Route path="/:id" element={<Post />} />
             <Route path="/modify_post/:id" element={<PostsPut />} />
             <Route path="/add_post" element={<PostsAdd />} />
-            <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<Connexion />} />
             <Route path='/login' element={<ConnexionLogIn />} />
             <Route path='/register' element={<ConnexionRegister />} />

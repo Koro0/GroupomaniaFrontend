@@ -27,7 +27,6 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link href={isLogged ? "/home" : "/"}>Home</Nav.Link>
                         <Nav.Link href={isLogged ? "/add_post" : "/"}>Add Post</Nav.Link>
-                        <Nav.Link href={isLogged ? "/profile" : "/"}>Profile</Nav.Link>
                         {
                             (isLogged && <Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>)
                         }
