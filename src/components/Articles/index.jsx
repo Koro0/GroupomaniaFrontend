@@ -15,26 +15,14 @@ export default function Articles() {
             console.log(data)
         })
     }, [])
-    // const sortByDateDesc = (a, b) => {
-    //     let day1 = Date.parse(a);
-    //     let day2 = Date.parse(b);
-    //     if (day1.getMonth() > day2.getMonth()) {
-    //         return 1;
-    //     } else if (day1.getMonth() < day2.getMonth()) {
-    //         return -1;
-    //     } else {
-    //         //same month
-    //         return day1.getMonth() - day2.getMonth();
-    //     }
-    // }
 
     return (
-        <div className='article'>
+        <div className='article row'>
             {
                 posts && posts.length > 0 && posts.map((data) => {
                     return (
-                        <Card className='cards' key={data._id}>
-                            <Card.Img src={data.imageUrl} alt={data.title} />
+                        <Card className='cards col-md-4' key={data._id}>
+                            <Card.Img className='card-img-top' src={data.imageUrl} alt={data.title} />
                             <Card.Body className='p-body'>
                                 <Card.Title>
                                     <Card.Link href={'/' + data._id}>
