@@ -8,7 +8,6 @@ const config = new Headers({
 
 export class PostsServices {
   static urlApi = 'http://localhost:3500/api/posts/';
-
   static async getAllPosts() {
     try {
       const res = await fetch('http://localhost:3500/api/posts/', {
