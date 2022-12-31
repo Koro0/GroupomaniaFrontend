@@ -41,6 +41,7 @@ export default function Register() {
         console.log(data)
         signUp(data)
         reset();
+        alert('Compte créer !!')
     };
 
     const getFormErrorMessage = (name) => {
@@ -76,9 +77,6 @@ export default function Register() {
                                 <span className="p-float-label">
                                     <Controller name="firstname" control={control} rules={{
                                         required: 'firstname is required.',
-                                        pattern: {
-                                            value: /^[A-Za-z]$/i
-                                        }
                                     }} render={({ field, fieldState }) => (
                                         <InputText id={field.firstname} {...field} autoFocus className={classNames({ 'p-invalid': fieldState.invalid })} />
                                     )} />

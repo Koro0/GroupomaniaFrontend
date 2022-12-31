@@ -12,6 +12,7 @@ export default function Comments({ idPost }) {
       setComments(res.data)
     );
   }, [idPost])
+  ///if (comments > 0) { comments.sort((a, b) => new Date(b.date) - new Date(a.date)) }
 
   useEffect(() => {
     refreshComments();

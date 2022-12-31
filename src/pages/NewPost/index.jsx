@@ -38,7 +38,7 @@ const NewPost = () => {
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const formData = new FormData()
-        formData.append('imageUrl', data.imageUrl[0])
+        if (data.imageUrl.length !== 0) { formData.append('imageUrl', data.imageUrl[0]) }
         formData.append('title', data.title)
         formData.append('description', data.description)
         PostsServices.newPost(formData).then(() => navigate('/home'))

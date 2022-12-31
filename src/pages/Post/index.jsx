@@ -53,7 +53,7 @@ export default function Post() {
                 <Card className='OneCard' key={data._id}>
                     <EditPost />
                     <Card.Header className='onePost-header'>
-                        <Card.Img src={data.imageUrl} alt="Post" />
+                        {data.imageUrl && <Card.Img src={data.imageUrl} alt="Post" />}
                         <Card.Title>{data.title}</Card.Title>
                         <Card.Text>{data.description}</Card.Text>
                     </Card.Header>
