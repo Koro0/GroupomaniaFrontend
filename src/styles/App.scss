@@ -354,16 +354,31 @@ width: 350px;
 }
 .middle-border {
   min-height: 300px;
-  margin-top: 170px;
+  margin-top: 10px;
   border-right: 1px solid #fff;
   border-right: 1px solid rgba(255, 255, 255, 0.6);
 }
-@media (max-width: 767px){
+
+
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 30px;
+}
+@media (max-width: 576px){
   .middle-border {
     min-height: auto;
     margin: 65px 30px 0 30px;
     border-right: 0;
     border-top: 1px solid #fff;
     border-top: 1px solid rgba(255, 255, 255, 0.6);
-}
+  }
+  .nav-toggle{
+    display: block;
+  }
+  .nav-link{
+    display: none;
+  }
 }

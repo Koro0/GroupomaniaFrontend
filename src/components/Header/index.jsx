@@ -31,7 +31,7 @@ const Header = () => {
                 <NavbarBrand className='logoSvg'>
                     <Logo />
                 </NavbarBrand>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="nav-toggle" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul className="navbar-nav me-auto">
