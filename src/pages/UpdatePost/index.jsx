@@ -11,6 +11,7 @@ export default function UplaodPost() {
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
     const [post, setPost] = useState()
+
     useEffect(() => {
         PostsServices.getOnePost().then((res) => setPost(res))
     }, [])
@@ -37,7 +38,7 @@ export default function UplaodPost() {
                         <label>Description :</label>
                         <textarea className='modifyTexteContent' {...register('description')} defaultValue={post.description} />
                     </div>
-                    <div>
+                    <div className='text-center'>
                         <input type="file" {...register('imageUrl')} accept='image/png, image/jpeg, image/jpg' />
                     </div>
                     <button type='submit' >Poster</button>
