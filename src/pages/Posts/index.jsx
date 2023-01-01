@@ -15,7 +15,7 @@ const Home = () => {
         <main role="main">
             <div class="album py-5">
                 <h1> Accueil</h1>
-                <PostsSection className='container'>
+                <PostsSection className='container-md'>
                     <Articles />
                 </PostsSection>
             </div>
