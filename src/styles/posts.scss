@@ -1,0 +1,45 @@
+
+.likeDisplay {
+    display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .modifyButton {
+    text-align: end;
+  }
+  
+  #editPost {
+    text-align: end;
+  }
+  .article {
+    margin-right: calc(0.5 * 1.5rem);
+      margin-left: calc(0.5 * 1.5rem);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .heartStyle{
+    width:1.5rem;
+    height:1.5rem;
+  }
+  .cards {
+    background: var(--secondaire);
+    padding: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin: 0.5rem;
+      width: 20rem;
+  }
+  .p-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .p-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  }
