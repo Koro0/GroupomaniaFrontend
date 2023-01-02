@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Context from './components/Context';
-import { useEffect } from 'react';
 import './styles/App.scss';
 
 import Connexion from './pages/Connexion';
@@ -17,13 +16,10 @@ import PostsAdd from './pages/NewPost';
 import Footer from './components/Footer';
 import PostsPut from './pages/UpdatePost';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
-import { UserService } from './components/UserServices';
 function App() {
   const [logged, setLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  useEffect(() => {
-    UserService.checkAdmin().then((res) => setIsAdmin(res.data))
-  }, [])
+
   return (
     <BrowserRouter>
       <ThemeProvider

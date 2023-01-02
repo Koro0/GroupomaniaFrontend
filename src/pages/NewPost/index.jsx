@@ -22,14 +22,14 @@ const NewPost = () => {
         <div className='formDiv'>
             <h1>Creer votre post</h1>
             <form id='newPostForm' onSubmit={handleSubmit(onSubmit)}>
-                <div className='formTitle' class="form-row">
+                <div className='formTitle form-row'>
                     <label>Title :</label>
                     <div className="value">
                         <input type="text"  {...register('title')} required placeholder="Your post Title" />
                         {errors.title && <span >The title is required</span>}
                     </div>
                 </div>
-                <div className='formDescription' class="form-row">
+                <div className='formDescription form-row'>
                     <label>Description :</label>
                     <div className="value">
                         <textarea className='inputDescription'  {...register('description')} required placeholder="Your content " />

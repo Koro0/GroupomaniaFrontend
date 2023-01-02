@@ -6,13 +6,15 @@ import { Password } from "primereact/password";
 import { classNames } from "primereact/utils";
 import { useNavigate } from 'react-router-dom';
 import { UserService } from "../../../components/UserServices";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Context from "../../../components/Context";
 
 
 
 export default function LogIn() {
     const { setLogged } = useContext(Context)
+    const [isLaoding, setIsLaoding] = useState(false);
+
     const navigate = useNavigate()
 
 
@@ -29,13 +31,15 @@ export default function LogIn() {
     } = useForm({ defaultValues });
 
     const onSubmit = async (data) => {
+        setIsLaoding(true);
         await UserService.logIn(data).then((res) => {
             localStorage.setItem('connect', res.data.token);
             localStorage.setItem('user', res.data.userId);
             setLogged(true);
+            setIsLaoding(false);
         })
         reset();
-        navigate('/home')
+        navigate('/home');
     };
 
     const getFormErrorMessage = (name) => {
@@ -113,6 +117,17 @@ export default function LogIn() {
                             </div>
                             <Button type="submit" label="Login" className="mt-2" />
                         </form>
+                        {isLaoding &&
+                            <div class="laoder">
+                                <span className="lettre">L</span>
+                                <span className="lettre">A</span>
+                                <span className="lettre">O</span>
+                                <span className="lettre">D</span>
+                                <span className="lettre">I</span>
+                                <span className="lettre">N</span>
+                                <span className="lettre">G</span>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
