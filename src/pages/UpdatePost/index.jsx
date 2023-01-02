@@ -26,19 +26,19 @@ export default function UplaodPost() {
     }
 
     return (
-        <div>
+        <div className='formDiv'>
             <h1>Edit Your Post</h1>
             {post &&
                 <form className='modifyForm' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='formTitle'>
+                    <div id='editFormTitle'>
                         <label>Title :</label>
                         <input defaultValue={post.title} {...register('title')} />
                     </div>
-                    <div className='formDescription'>
+                    <div id='editFormDescription'>
                         <label>Description :</label>
                         <textarea className='modifyTexteContent' {...register('description')} defaultValue={post.description} />
                     </div>
-                    <div className='text-center form-row'>
+                    <div className='text-center'>
                         <input type="file" {...register('imageUrl')} accept='image/png, image/jpeg, image/jpg' />
                     </div>
                     <button type='submit' >Poster</button>

@@ -20,7 +20,13 @@
     pointer-events: none;
     cursor: default;
   }
-  
+  @media (max-width:577px) {
+    .OneCard {
+      margin: 1rem;
+      padding: 1rem;
+    
+    }
+  }
 
 
 /* Comment BOX */

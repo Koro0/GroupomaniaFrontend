@@ -1,9 +1,10 @@
 /* New Post page */
-.form-row{
+  .form-row{
     align-items: flex-start;
     padding: 24px 55px;
     border-bottom: 1px solid #e5e5e5;
   }
+
   #newPostForm {
     margin: 4rem;
     border: solid 5px;
@@ -11,12 +12,63 @@
     height: 40rem;
     display: grid;
   }
+
+  #modifyForm {
+    margin: 4rem;
+    border: solid 5px;
+    padding: 10px;
+    height: 40rem;
+    display: grid;
+  }
+  
+  .formTitle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formDescription {
+    height: 200px; 
+    display: contents;
+  }
+
+  .inputDescription {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    height: 20rem;
+  }
+
+  .errorFormNewPost {
+    color: #f3afaf;
+  }
+
+  .formDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
   
 @media (max-width: 576px) {
     #newPostForm {
-      margin: 2rem;
+      margin: 1rem;
       height: auto;
-      display: block;
+      display: grid;
+      padding: 0;
       div {
         margin: 5px;
       }
@@ -29,20 +81,5 @@
     }
     
   }
-  #formTitle {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-  #formDescription {
-        /* max-width: 700px; */
-      height: 200px; 
-      display: contents;
-  }
-  .errorFormNewPost {
-    color: #f3afaf;
-  }
+  
   

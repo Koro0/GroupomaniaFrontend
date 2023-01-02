@@ -27,7 +27,13 @@
     height: 20rem;
   }
   
-@media (max-width: 576px) {
+@media (max-width: 585px) {
+  .modifyForm {
+    margin: 1rem;
+    height: auto;
+    display: grid;
+    padding: 0;
+  }
     .postForm {
       margin: 2rem;
       height: auto;
@@ -44,7 +50,7 @@
     }
     
   }
-  .formTitle {
+  #editFormTitle {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -52,12 +58,7 @@
     justify-content: center;
     align-items: center;
   }
-  .formDescription {
-        /* max-width: 700px; */
+  #editFormDescription {
       height: 200px; 
       display: contents;
   }
-  .errorFormNewPost {
-    color: #f3afaf;
-  }
-  
