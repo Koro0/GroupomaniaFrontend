@@ -15,14 +15,13 @@ export default function Articles() {
             console.log(data)
         })
     }, [])
-
     return (
         <div className='article row'>
             {
                 posts && posts.length > 0 && posts.map((data) => {
                     return (
                         <Card className='cards col-md-4' key={data._id}>
-                            {!posts.imageUrl && <Card.Img className='card-img-top' src={data.imageUrl} alt={data.title} />}
+                            {data.imageUrl !== null && <Card.Img className='card-img-top' src={data.imageUrl} alt={data.title} />}
                             <Card.Body className='p-body'>
                                 <Card.Title>
                                     <Card.Link href={'/' + data._id}>

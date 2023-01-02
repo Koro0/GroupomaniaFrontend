@@ -20,7 +20,7 @@
 body {
   background-color: var(--tertiaire) !important;
   color: var(--primaire) !important;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif !important;
 }
 .App {
   text-align: center;
@@ -106,7 +106,7 @@ max-width: 37.5rem;
   }
   textarea {
     font-style: italic;
-  }
+  }ard-title
 }
 .comment-form-action {
   display: flex;

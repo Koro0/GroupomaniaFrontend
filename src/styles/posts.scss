@@ -32,6 +32,13 @@
       padding-right: 1rem;
       margin: 0.5rem;
       width: 20rem;
+      div {
+        border: solid 1px rgba(228, 212, 74, 0.63);
+      }
+      .card-title{
+        text-align: center;
+        font-weight: bold;
+      }
   }
   .p-body {
     display: flex;
