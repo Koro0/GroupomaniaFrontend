@@ -10,10 +10,7 @@ export default function Articles() {
     }
     //Souci chargement
     useEffect(() => {
-        PostsServices.getAllPosts().then((data) => {
-            setPosts(data)
-            console.log(data)
-        })
+        PostsServices.getAllPosts().then((data) => setPosts(data))
     }, [])
 
     return (
