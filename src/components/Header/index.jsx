@@ -35,8 +35,8 @@ const Header = () => {
                 <Nav.Link href={isLogged || logged ? "/home" : "#"} className='logoSvg'>
                     <Logo />
                 </Nav.Link>
-                <button class="nav-toggle showMenu" type="button" onClick={handleClick} data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="nav-toggle showMenu" type="button" onClick={handleClick} data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className='navUl'>
                     <ul className={buttonClass ? "navbar-nav me-auto" : "navbar-nav me-auto maskNav"}>

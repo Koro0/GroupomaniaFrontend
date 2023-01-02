@@ -19,7 +19,7 @@ const Home = () => {
     }, [setIsAdmin])
     return (
         <main role="main">
-            <div class="album py-5">
+            <div className="album py-5">
                 <h1> Accueil</h1>
                 <PostsSection className='container-md'>
                     <Articles />

@@ -33,23 +33,23 @@ export default function Comments({ idPost }) {
 
   return (
     <div className='card'>
-      <div class="card-body">
-        <h4 class="card-title">Recent Comments</h4>
-        <h6 class="card-subtitle">Latest Comments section by users</h6>
+      <div className="card-body">
+        <h4 className="card-title">Recent Comments</h4>
+        <h6 className="card-subtitle">Latest Comments section by users</h6>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea id="commentaire" type="text" placeholder='Commentaire' {...register('commentaire', { required: true, minLength: 2 })} />
         <ButtonSubmit type="submit" />
       </form>
-      <div class="comment-widgets m-b-20">
+      <div className="comment-widgets m-b-20">
         {comments.map((comment, index) =>
-          <div class="d-flex flex-row comment-row">
-            <div class="comment-text w-100">
+          <div className="d-flex flex-row comment-row">
+            <div className="comment-text w-100">
               <ul>
                 <li className='commentLi' key={(index, comment.user)}>
                   <h5>{comment.user}</h5>
-                  <div class="comment-footer">
-                    <span class="date">{comment.date}</span>
+                  <div className="comment-footer">
+                    <span className="date">{comment.date}</span>
                   </div>
                   <p>{comment.comment}</p>
                 </li>

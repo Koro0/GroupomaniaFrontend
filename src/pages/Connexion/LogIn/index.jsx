@@ -118,7 +118,7 @@ export default function LogIn() {
                             <Button type="submit" label="Login" className="mt-2" />
                         </form>
                         {isLaoding &&
-                            <div class="laoder">
+                            <div className="laoder">
                                 <span className="lettre">L</span>
                                 <span className="lettre">A</span>
                                 <span className="lettre">O</span>
