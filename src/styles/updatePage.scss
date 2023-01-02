@@ -1,12 +1,63 @@
 // modify page
 .modifyForm{
-    display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
+  margin: 4rem;
+  border: solid 5px;
+  padding: 10px;
+  height: 40rem;
+  display: grid;
   }
   .modifyTexteContent{
-  height: 350px;
-  width: 350px;
+  display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    -webkit-transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    height: 20rem;
+  }
+  
+@media (max-width: 576px) {
+    .postForm {
+      margin: 2rem;
+      height: auto;
+      display: block;
+      div {
+        margin: 5px;
+      }
+      button {
+        width: 100%;
+      }
+    .form-row{
+      padding: 0;
+    }
+    }
+    
+  }
+  .formTitle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .formDescription {
+        /* max-width: 700px; */
+      height: 200px; 
+      display: contents;
+  }
+  .errorFormNewPost {
+    color: #f3afaf;
   }
   
