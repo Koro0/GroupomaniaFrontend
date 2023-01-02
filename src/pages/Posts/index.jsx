@@ -6,7 +6,6 @@ import Articles from '../../components/Articles';
 const PostsSection = styled.section`
 display: flex;
 flex-wrap: wrap;
-margin: 15px;
 `
 
 

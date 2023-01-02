@@ -11,6 +11,23 @@
     height: 40rem;
     display: grid;
   }
+  @media (max-width: 576px) {
+    #newPostForm {
+      margin: 2rem;
+      height: auto;
+      display: block;
+      div {
+        margin: 5px;
+      }
+      button {
+        width: 100%;
+      }
+    .form-row{
+      padding: 0;
+    }
+    }
+    
+  }
   #formTitle {
     display: flex;
     flex-direction: row;
