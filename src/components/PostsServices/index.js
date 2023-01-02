@@ -8,17 +8,6 @@ const config = new Headers({
 
 export class PostsServices {
   static urlApi = 'http://localhost:3500/api/posts/';
-  static async getAllPosts() {
-    try {
-      const res = await fetch('http://localhost:3500/api/posts/', {
-        method: 'GET',
-        headers: config,
-      });
-      return await res.json();
-    } catch (err) {
-      return console.log(err);
-    }
-  }
 
   static async getOnePost() {
     const url = window.location.href;

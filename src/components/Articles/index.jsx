@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { PostsServices } from '../../components/PostsServices';
+import axios from 'axios';
 import Card from 'react-bootstrap/Card'
 
 
@@ -8,9 +8,25 @@ export default function Articles() {
     if (posts.length > 0) {
         posts.sort((a, b) => new Date(b.updateDate) - new Date(a.updateDate));
     }
-    //Souci chargement
+
     useEffect(() => {
-        PostsServices.getAllPosts().then((data) => setPosts(data))
+        async function getAllPosts() {
+            try {
+                const res = await axios.get('http://localhost:3500/api/posts/', {
+                    headers:
+                    {
+                        Authorization: `Bearer ${localStorage.getItem('connect')}`,
+                        Accept: 'application/json',
+                        'Content-Type': 'multipart/form-data',
+                    }
+                })
+                setPosts(res.data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getAllPosts()
+
     }, [])
 
     return (
