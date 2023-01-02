@@ -17,7 +17,7 @@ const Header = () => {
     }
     const isConnected = () => {
         if (isLogged || logged) {
-            return (<Nav.Link href="/" onClick={handleLogOut}>Deconnect</Nav.Link>)
+            return (<Nav.Link href="/" onClick={handleLogOut}>Déconnexion</Nav.Link>)
         } else { return null }
     }
 
@@ -41,10 +41,10 @@ const Header = () => {
                 <div className='navUl'>
                     <ul className={buttonClass ? "navbar-nav me-auto" : "navbar-nav me-auto maskNav"}>
                         <li className="nav-item">
-                            <Nav.Link href={isLogged || logged ? "/home" : "#"}>Home</Nav.Link>
+                            <Nav.Link href={isLogged || logged ? "/home" : "#"}>Accueil</Nav.Link>
                         </li>
                         <li className='nav-item'>
-                            <Nav.Link href={isLogged || logged ? "/add_post" : "#"}>Add Post</Nav.Link>
+                            <Nav.Link href={isLogged || logged ? "/add_post" : "#"}>Nouveau Poste</Nav.Link>
                         </li>
                         <li className='nav-item'>
                             {isConnected()}
