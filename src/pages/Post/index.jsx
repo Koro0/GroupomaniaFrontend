@@ -62,7 +62,7 @@ export default function Post() {
                     </Card.Footer>
                     <Card.Footer>
                         <div className="container d-flex justify-content-center mt-100 mb-100">
-                            <div className="row">
+                            <div className="row border-comment">
                                 <div className="col-md-12">
                                     <CommentBox idPost={data._id} />
                                 </div>

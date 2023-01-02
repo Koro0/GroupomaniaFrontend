@@ -6,7 +6,10 @@
   }
   #newPostForm {
     margin: 4rem;
-    
+    border: solid 5px;
+    padding: 10px;
+    height: 40rem;
+    display: grid;
   }
   #formTitle {
     display: flex;

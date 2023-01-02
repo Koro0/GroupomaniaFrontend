@@ -4,6 +4,7 @@ import { PostsServices } from '../../components/PostsServices'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
+
 const DescriptionWindows = styled.textarea`
 display: block;
  width: 100%;
@@ -19,11 +20,8 @@ display: block;
  appearance: none;
  border-radius: 0.375rem;
  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ height: 20rem;
  `
-// const PostForm = styled.form`
-//      margin: 2em auto;
-//      max-width: 750px;
-//  `
 const FormDiv = styled.div`
 display: flex;
     flex-direction: column;
@@ -31,36 +29,33 @@ display: flex;
 }
  `
 
-
-
 const NewPost = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const formData = new FormData()
-        if (data.imageUrl.length !== 0) { formData.append('imageUrl', data.imageUrl[0]) }
+        data.imageUrl.length !== 0 && formData.append('imageUrl', data.imageUrl[0])
         formData.append('title', data.title)
         formData.append('description', data.description)
         PostsServices.newPost(formData).then(() => navigate('/home'))
 
     }
-    //styles a refire
 
     return (
         <FormDiv>
             <h1>Creer votre post</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form id='newPostForm' onSubmit={handleSubmit(onSubmit)}>
                 <div id='formTitle' class="form-row">
                     <label>Title :</label>
                     <div className="value">
-                        <input type="text"  {...register('title')} placeholder="Your post Title" />
+                        <input type="text"  {...register('title')} required placeholder="Your post Title" />
                         {errors.title && <span >The title is required</span>}
                     </div>
                 </div>
                 <div id='formDescription' class="form-row">
                     <label>Description :</label>
                     <div className="value">
-                        <DescriptionWindows  {...register('description')} placeholder="Your content " />
+                        <DescriptionWindows  {...register('description')} required placeholder="Your content " />
                         {errors.description && <span>the minimum is to required</span>}
                     </div>
                 </div>
