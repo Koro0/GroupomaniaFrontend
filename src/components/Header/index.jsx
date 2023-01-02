@@ -25,7 +25,7 @@ const Header = () => {
         (localStorage.getItem('connect') && setIslogged(true))
     }, [])
 
-    const handleClick = (event) => {
+    const handleClick = () => {
         setButtonClass(!buttonClass)
     }
 

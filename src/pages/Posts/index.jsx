@@ -1,15 +1,9 @@
 import React from 'react'
 import { useContext, useEffect } from 'react';
-import styled from 'styled-components'
+
 import Articles from '../../components/Articles';
 import Context from '../../components/Context';
 import { UserService } from '../../components/UserServices';
-
-const PostsSection = styled.section`
-display: flex;
-flex-wrap: wrap;
-`
-
 
 const Home = () => {
     const { setIsAdmin } = useContext(Context)
@@ -21,9 +15,9 @@ const Home = () => {
         <main role="main">
             <div className="album py-5">
                 <h1> Accueil</h1>
-                <PostsSection className='container-md'>
+                <section className='container-md postSection'>
                     <Articles />
-                </PostsSection>
+                </section>
             </div>
         </main>
     )

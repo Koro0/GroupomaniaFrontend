@@ -31,7 +31,12 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
-
+.footerCopy{
+  text-align: center;
+left: 0;
+right: 0;
+margin: 0;
+}
 
 
 .App-header {
@@ -48,6 +53,11 @@ body {
 .App-link {
   color: #61dafb;
 }
+.PostsSection {
+display: flex;
+flex-wrap: wrap;
+}
+
 
 @keyframes App-logo-spin {
   from {

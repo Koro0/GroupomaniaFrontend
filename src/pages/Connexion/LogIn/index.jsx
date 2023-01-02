@@ -18,6 +18,7 @@ export default function LogIn() {
     const navigate = useNavigate()
 
 
+
     const defaultValues = {
         email: "",
         password: ""
@@ -36,7 +37,6 @@ export default function LogIn() {
             localStorage.setItem('connect', res.data.token);
             localStorage.setItem('user', res.data.userId);
             setLogged(true);
-            setIsLaoding(false);
         })
         reset();
         navigate('/home');
@@ -49,7 +49,9 @@ export default function LogIn() {
     };
 
     return (
+
         <div className="form-demo col-sm-5">
+
             <div className="form-box">
                 <div className="card">
                     <div className="form-top">
@@ -117,17 +119,18 @@ export default function LogIn() {
                             </div>
                             <Button type="submit" label="Login" className="mt-2" />
                         </form>
-                        {isLaoding &&
-                            <div className="laoder">
-                                <span className="lettre">L</span>
-                                <span className="lettre">A</span>
-                                <span className="lettre">O</span>
-                                <span className="lettre">D</span>
-                                <span className="lettre">I</span>
-                                <span className="lettre">N</span>
-                                <span className="lettre">G</span>
-                            </div>
-                        }
+                        <div className={isLaoding ? "laoder" : "laoderDisabled"}>
+                            <span className="lettre">L</span>
+                            <span className="lettre">A</span>
+                            <span className="lettre">O</span>
+                            <span className="lettre">D</span>
+                            <span className="lettre">I</span>
+                            <span className="lettre">N</span>
+                            <span className="lettre">G</span>
+                            <span className="lettre">.</span>
+                            <span className="lettre">.</span>
+                            <span className="lettre">.</span>
+                        </div>
                     </div>
                 </div>
             </div>
