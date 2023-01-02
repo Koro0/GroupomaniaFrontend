@@ -54,7 +54,7 @@ export default function Post() {
                     <EditPost />
                     <Card.Header className='onePost-header'>
                         {data.imageUrl && <Card.Img src={data.imageUrl} alt="Post" />}
-                        <Card.Title>{data.title}</Card.Title>
+                        <h3>{data.title}</h3>
                         <Card.Text>{data.description}</Card.Text>
                     </Card.Header>
                     <Card.Footer>
