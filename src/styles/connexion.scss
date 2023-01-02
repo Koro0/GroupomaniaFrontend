@@ -1,0 +1,28 @@
+/// Connexion
+.form-box{
+  margin-top: 70px
+}
+.form-top{
+  overflow: hidden;
+  padding: 0 25px 15px 25px;
+  background: #fff;
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+  padding-top: 25px;
+}
+.form-bottom{
+  padding: 25px 25px 30px 25px;
+  background: #eee;
+  border-radius: 0 0 4px 4px;
+  text-align: left;
+}
+
+@media (min-width:576px) and (max-width:1700px) {
+    .middle-border {
+      min-height: 300px;
+      margin-top: 10px;
+      border-right: 1px solid #fff;
+      border-right: 1px solid rgba(255, 255, 255, 0.6);
+    }
+  }
+  

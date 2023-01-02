@@ -5,11 +5,12 @@
 @import "primereact/resources/primereact.css";
 @import "primeflex/primeflex.css";
 
-@import "./responsive.scss";
 @import "./posts.scss";
+@import "./post.scss";
 @import "./navbar.scss";
 @import "./updatePage.scss";
 @import "./createPost.scss";
+@import "./connexion.scss";
 
 :root {
   --primaire : #FD2D01;
