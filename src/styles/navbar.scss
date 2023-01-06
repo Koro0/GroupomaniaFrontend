@@ -1,5 +1,5 @@
 
-.navbar {
+/*.navbar {
     color: var(--primaire);
     list-style-type: none;
     display: flex;
@@ -16,10 +16,7 @@
   .navList a {
     text-decoration: none;
   }
-  a:visited, a:link{
-    color: var(--primaire);
-    text-decoration: none;
-  }
+  
   .logoSvg {
   width: 150px;
   height: 2rem;
@@ -30,9 +27,7 @@
     justify-content: space-around;
     margin: auto;
   }
-  h1, h2, h3 {
-    text-align: center;
-  }
+
   
   
   
@@ -76,4 +71,4 @@
   .maskNav{
     display: none;
   }
-}
+}*/

@@ -34,8 +34,8 @@ export default function Comments({ idPost }) {
   return (
     <div className='card'>
       <div className="card-body">
-        <h4 className="card-title">Recent Comments</h4>
-        <h6 className="card-subtitle">Latest Comments section by users</h6>
+        <h4 className="card-title">Commentaires récents</h4>
+        <h6 className="card-subtitle">Les derniers Commentaire laisser par les utilisateurs :</h6>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea id="commentaire" type="text" placeholder='Commentaire' {...register('commentaire', { required: true, minLength: 2 })} />

@@ -8,7 +8,7 @@ import './styles/App.scss';
 import Connexion from './pages/Connexion';
 import ConnexionLogIn from './pages/Connexion/LogIn';
 import ConnexionRegister from './pages/Connexion/Register';
-import Header from './components/Header';
+import Header from './components/Header/header';
 import Error from './components/Error';
 import Posts from './pages/Posts';
 import Post from './pages/Post';

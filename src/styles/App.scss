@@ -37,8 +37,13 @@ left: 0;
 right: 0;
 margin: 0;
 }
-
-
+h1, h2, h3 {
+  text-align: center;
+}
+a:visited, a:link{
+  color: var(--primaire);
+  text-decoration: none;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -57,7 +62,9 @@ margin: 0;
 display: flex;
 flex-wrap: wrap;
 }
-
+.hiddenClass{
+  display: none;
+}
 
 @keyframes App-logo-spin {
   from {

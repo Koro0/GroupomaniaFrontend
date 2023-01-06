@@ -21,7 +21,7 @@ export default function Liked({ postId }) {
     }
     return (
         <div className='likeDisplay'>
-            <button className='likeButton' icon="pi" onClick={handleLike}> <Heart /> </button>
+            <button title='boutton en forme de coeur' aria-label="Ajouter un j'aime sur le poste" className='likeButton' icon="pi" onClick={handleLike}> <Heart /> </button>
 
             <p><span>{likes}</span> J'aimes</p>
 
