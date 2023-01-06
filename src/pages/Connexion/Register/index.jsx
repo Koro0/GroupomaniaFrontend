@@ -69,14 +69,14 @@ export default function Register() {
             <div className="form-box">
                 <div className="card">
                     <div className="form-top">
-                        <h5 className="text-center">Register</h5>
+                        <h5 className="text-center">Inscription</h5>
                     </div>
                     <div className="form-bottom">
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                             <div className="field">
                                 <span className="p-float-label">
                                     <Controller name="firstname" control={control} rules={{
-                                        required: 'firstname is required.',
+                                        required: 'Prénom requis.',
                                     }} render={({ field, fieldState }) => (
                                         <InputText id={field.firstname} {...field} autoFocus className={classNames({ 'p-invalid': fieldState.invalid })} />
                                     )} />
@@ -87,7 +87,7 @@ export default function Register() {
                             <div className="field">
                                 <span className="p-float-label">
                                     <Controller name="lastname" control={control} rules={{
-                                        required: 'Name is required.'
+                                        required: 'Nom requis.'
                                     }} render={({ field, fieldState }) => (
                                         <InputText id={field.lastname} {...field} autoFocus className={classNames({ 'p-invalid': fieldState.invalid })} />
                                     )} />
@@ -102,7 +102,7 @@ export default function Register() {
                                         name="email"
                                         control={control}
                                         rules={{
-                                            required: "Email is required.",
+                                            required: "Adresse e-mail requis.",
                                             pattern: {
                                                 value: /^[A-Z0-9._%+-]+@groupomania.[A-Z]{2,4}$/i,
                                                 message: "Invalid email address. E.g. example@email.com"
@@ -132,7 +132,7 @@ export default function Register() {
                                     <Controller
                                         name="password"
                                         control={control}
-                                        rules={{ required: "Password is required." }}
+                                        rules={{ required: "Mot de passe requis." }}
                                         render={({ field, fieldState }) => (
                                             <Password
                                                 id={field.name}
@@ -155,7 +155,7 @@ export default function Register() {
                                 </span>
                                 {getFormErrorMessage("password")}
                             </div>
-                            <Button type="submit" label="Register" className="mt-2" />
+                            <Button type="submit" label="Créer" className="mt-2" />
                         </form>
                     </div>
 

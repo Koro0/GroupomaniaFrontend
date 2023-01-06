@@ -55,7 +55,7 @@ export default function LogIn() {
             <div className="form-box">
                 <div className="card">
                     <div className="form-top">
-                        <h5 className="text-center">LogIn</h5>
+                        <h5 className="text-center">Connexion</h5>
                     </div>
                     <div className="form-bottom">
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid login-form">
@@ -66,10 +66,10 @@ export default function LogIn() {
                                         name="email"
                                         control={control}
                                         rules={{
-                                            required: "Email is required.",
+                                            required: "Email est requis.",
                                             pattern: {
                                                 value: /^[A-Z0-9._%+-]+@groupomania.[A-Z]{2,4}$/i,
-                                                message: "Invalid email address. E.g. example@groupomania.com"
+                                                message: "Adresse e-mail invalide. E.g. example@groupomania.com"
                                             }
                                         }}
                                         render={({ field, fieldState }) => (
@@ -96,7 +96,7 @@ export default function LogIn() {
                                     <Controller
                                         name="password"
                                         control={control}
-                                        rules={{ required: "Password is required." }}
+                                        rules={{ required: "Mot de passe requis." }}
                                         render={({ field, fieldState }) => (
                                             <Password
                                                 id={field.name}
@@ -112,24 +112,24 @@ export default function LogIn() {
                                         htmlFor="password"
                                         className={classNames({ "p-error": errors.password })}
                                     >
-                                        Password*
+                                        Mot de passe*
                                     </label>
                                 </span>
                                 {getFormErrorMessage("password")}
                             </div>
-                            <Button type="submit" label="Login" className="mt-2" />
+                            <Button type="submit" label="Se Connecter" className="mt-2" />
                         </form>
                         <div className={isLaoding ? "laoder" : "laoderDisabled"}>
-                            <span className="lettre">L</span>
+                            <span className="lettre">C</span>
+                            <span className="lettre">H</span>
                             <span className="lettre">A</span>
-                            <span className="lettre">O</span>
-                            <span className="lettre">D</span>
-                            <span className="lettre">I</span>
-                            <span className="lettre">N</span>
+                            <span className="lettre">R</span>
                             <span className="lettre">G</span>
-                            <span className="lettre">.</span>
-                            <span className="lettre">.</span>
-                            <span className="lettre">.</span>
+                            <span className="lettre">E</span>
+                            <span className="lettre">M</span>
+                            <span className="lettre">E</span>
+                            <span className="lettre">N</span>
+                            <span className="lettre">T</span>
                         </div>
                     </div>
                 </div>
