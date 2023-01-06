@@ -8,7 +8,6 @@ import Navbar from 'react-bootstrap/Navbar';
 function Header() {
     const [isLogged, setIslogged] = useState(false)
     const { logged } = useContext(Context)
-    //const [buttonClass, setButtonClass] = useState(false)
     const handleLogOut = () => {
         localStorage.clear()
         setIslogged(false)
