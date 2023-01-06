@@ -80,7 +80,7 @@ export default function Register() {
                                     }} render={({ field, fieldState }) => (
                                         <InputText id={field.firstname} {...field} autoFocus className={classNames({ 'p-invalid': fieldState.invalid })} />
                                     )} />
-                                    <label htmlFor="firstname" className={classNames({ 'p-error': errors.firstname })}>Firstname*</label>
+                                    <label htmlFor="firstname" className={classNames({ 'p-error': errors.firstname })}>Prénom*</label>
                                 </span>
                                 {getFormErrorMessage('firstname')}
                             </div>
@@ -91,7 +91,7 @@ export default function Register() {
                                     }} render={({ field, fieldState }) => (
                                         <InputText id={field.lastname} {...field} autoFocus className={classNames({ 'p-invalid': fieldState.invalid })} />
                                     )} />
-                                    <label htmlFor="lastname" className={classNames({ 'p-error': errors.lastname })}>Lastname*</label>
+                                    <label htmlFor="lastname" className={classNames({ 'p-error': errors.lastname })}>Nom*</label>
                                 </span>
                                 {getFormErrorMessage('lastname')}
                             </div>
@@ -150,7 +150,7 @@ export default function Register() {
                                         htmlFor="password"
                                         className={classNames({ "p-error": errors.password })}
                                     >
-                                        Password*
+                                        Mot de passe*
                                     </label>
                                 </span>
                                 {getFormErrorMessage("password")}
