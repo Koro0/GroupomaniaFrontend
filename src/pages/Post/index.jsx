@@ -38,8 +38,8 @@ export default function Post() {
         if (isAuthor || admin) {
             return (
                 <div className='modifyButton'>
-                    <Card.Link onClick={handleDelete} id="editPost"><i className='pi pi-trash'></i>Delete</Card.Link>
-                    <Card.Link onClick={redirectEdit} id="editPost"><i className='pi pi-pencil'></i> Edit</Card.Link>
+                    <Card.Link onClick={handleDelete} id="editPost"><i className='pi pi-trash'></i> Supprimer</Card.Link>
+                    <Card.Link onClick={redirectEdit} id="editPost"><i className='pi pi-pencil'></i> Modifier</Card.Link>
                 </div>
             )
         }
@@ -53,7 +53,7 @@ export default function Post() {
                 <Card className='OneCard' key={data._id}>
                     <EditPost />
                     <Card.Header className='onePost-header'>
-                        {data.imageUrl && <Card.Img src={data.imageUrl} alt="Post" />}
+                        {data.imageUrl && <Card.Img src={data.imageUrl} alt={`l'image du Post ${data.title}`} />}
                         <h3>{data.title}</h3>
                         <Card.Text>{data.description}</Card.Text>
                     </Card.Header>
