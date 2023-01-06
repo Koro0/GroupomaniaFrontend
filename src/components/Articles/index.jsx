@@ -44,7 +44,7 @@ export default function Articles() {
                                         {data.title}
                                     </Card.Link>
                                 </Card.Title>
-                                <Card.Text>{data.description}</Card.Text>
+                                <Card.Text>{data.description.substring(0, 300)}[...]</Card.Text>
                             </Card.Body>
                             <Card.Footer>
                                 <p>
