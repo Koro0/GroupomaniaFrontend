@@ -37,9 +37,14 @@ export default function LogIn() {
             localStorage.setItem('connect', res.data.token);
             localStorage.setItem('user', res.data.userId);
             setLogged(true);
+            navigate('/home');
+        }).catch(() => {
+            alert('Email ou mot de passe incorrect')
+            setIsLaoding(false)
+            setLogged(false);
         })
         reset();
-        navigate('/home');
+
     };
 
     const getFormErrorMessage = (name) => {
