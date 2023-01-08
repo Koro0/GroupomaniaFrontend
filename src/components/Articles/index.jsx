@@ -28,7 +28,6 @@ export default function Articles() {
         getAllPosts()
 
     }, [])
-
     return (
         <div className='article row'>
             {
