@@ -21,8 +21,8 @@ export default function UplaodPost() {
         if (data.imageUrl.length !== 0) { formData.append('imageUrl', data.imageUrl[0]) }
         formData.append('title', data.title)
         formData.append('description', data.description)
-        PostsServices.ModifyPost(formData)
-        navigate('/home')
+        PostsServices.ModifyPost(formData).then(() => navigate('/home'))
+
     }
 
     return (
